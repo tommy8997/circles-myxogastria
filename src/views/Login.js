@@ -50,6 +50,7 @@ const Login = () => {
         }),
       );
     } catch (error) {
+      console.log(error);
       let translationId = 'Login.errorRestoreFailedUnknown';
       if (error.message === RESTORE_ACCOUNT_INVALID_SEED_PHRASE) {
         translationId = 'Login.errorRestoreFailedInvalidSeedphrase';

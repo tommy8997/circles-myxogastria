@@ -44,6 +44,7 @@ const VerifiedUsernameInput = ({
 
         setIsError(false);
       } catch (error) {
+        console.log(error);
         if (error.request.status === 400) {
           setErrorMessage(
             translate('VerifiedUsernameInput.formUsernameInvalidFormat'),

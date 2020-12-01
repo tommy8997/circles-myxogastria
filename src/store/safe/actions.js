@@ -87,11 +87,13 @@ export function recreateUndeployedSafe() {
       }
 
       const { wallet } = getState();
+      console.log('trying to predict safe address with device address', wallet.address);
 
       // Try to predict safe address via deterministic nonce. This action does
       // NOT create a Safe!
       const pendingNonce = generateDeterministicNonce(wallet.address);
       const pendingAddress = await core.safe.predictAddress(pendingNonce);
+      console.log('predicted safe address was', pendingAddress);
 
       // Check if precicted address exists in our system (it should be created,
       // but not deployed yet).
@@ -120,6 +122,7 @@ export function recreateUndeployedSafe() {
 
       return pendingAddress;
     } catch (error) {
+      console.log(error)
       dispatch({
         type: ActionTypes.SAFE_CREATE_ERROR,
       });

@@ -24,6 +24,7 @@ export function initializeWallet() {
         });
       }
     } catch (error) {
+      console.log(error);
       dispatch({
         type: ActionTypes.WALLET_INITIALIZE_ERROR,
       });

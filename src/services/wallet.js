@@ -47,12 +47,15 @@ export function getPublicAddress() {
 
   const { address } = web3.eth.accounts.privateKeyToAccount(privateKey);
 
+  console.log('has device address', address);
+
   return address;
 }
 
 export function fromSeedPhrase(seedPhrase) {
   const restoredKey = mnemonicToEntropy(seedPhrase);
   const privateKey = `0x${restoredKey}`;
+  console.log('setting private key as', privateKey);
 
   setPrivateKey(privateKey);
 
